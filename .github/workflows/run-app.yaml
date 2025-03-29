@@ -1,10 +1,10 @@
-name: 'Run App Nguyen, Kyle'
+name: 'Run App <last name>, <first name>'
 
 on: [push, pull_request]
 
 jobs:
   build-and-test:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: install dotnet
