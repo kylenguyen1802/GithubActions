@@ -1,17 +1,23 @@
-name: 'Run App <last name>, <first name>'
+name: 'Run App <Your Last Name>, <Your First Name>'
 
 on: [push, pull_request]
 
 jobs:
   build-and-test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # Ensure this is correct
     steps:
       - uses: actions/checkout@v2
-      - name: install dotnet
+      
+      - name: Install .NET 8
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.x'
-      - name: build
-        run: dotnet build
-      - name: run unit tests
-        run: dotnet test
+          
+      - name: Restore Dependencies
+        run: dotnet restore
+      
+      - name: Build Project
+        run: dotnet build --no-restore
+      
+      - name: Run Unit Tests
+        run: dotnet test --no-build --verbosity normal
