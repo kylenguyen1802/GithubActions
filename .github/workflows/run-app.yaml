@@ -4,7 +4,7 @@ on: [push, pull_request]
 
 jobs:
   build-and-test:
-    runs-on: ubuntu-latest  # Ensure this is correct
+    runs-on: windows-latest  # Change this line to use Windows
     steps:
       - uses: actions/checkout@v2
       
